@@ -106,8 +106,26 @@
       opacity: 0.9;
     }
 
+    /* Exit Button */
+    .exit-btn {
+      display: block;
+      margin: 50px auto 0;
+      padding: 14px 40px;
+      background: #4aa3ff;
+      border: 3px solid #0b3d91;
+      color: #0b3d91;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .exit-btn:hover {
+      opacity: 0.9;
+    }
+
     .footer {
-      margin-top: 60px;
+      margin-top: 40px;
       text-align: center;
       font-size: 14px;
       opacity: 0.8;
@@ -147,9 +165,6 @@
 
     <h2>Report a Problem or Suggest a Feature</h2>
     <div class="card">
-      <p>
-        Use the form below to report:
-      </p>
       <ul>
         <li>Bugs or crashes</li>
         <li>Inappropriate or unsafe content</li>
@@ -165,11 +180,11 @@
 
     <h2>Contact Support</h2>
     <div class="card">
-      <p>
-        For direct contact, email:
-      </p>
       <p class="email">dudemakcolas@gmail.com</p>
     </div>
+
+    <!-- Exit Button -->
+    <button class="exit-btn" onclick="exitPage()">Exit</button>
 
     <div class="footer">
       © AnderCraft — All rights reserved
@@ -182,9 +197,7 @@
 
     function formatLogs(text) {
       logsBox.innerHTML = "";
-      const lines = text.split("\n");
-
-      lines.forEach(line => {
+      text.split("\n").forEach(line => {
         const div = document.createElement("div");
 
         if (/^v|^version/i.test(line.trim())) {
@@ -215,7 +228,11 @@
 
     loadLogs();
     setInterval(loadLogs, 60000);
+
+    function exitPage() {
+      window.parent.postMessage("Exit", "*");
+    }
   </script>
 
 </body>
-  </html>
+</html>
