@@ -1,3 +1,1 @@
-V2: Added logs and news, added a support tab, and redesigned the main menu. We also remade
-the world functionality, able to export worlds, import worlds, and more. We also added the ability to
-play old worlds, on new versions of AC 2.0 and 1.5.
+V2: Added logs and news, added a support tab, and redesigned the main menu. We also remade the world functionality, able to export worlds, import worlds, and more. We also added the ability to play old worlds on new versions of AC (1.5 and later).
