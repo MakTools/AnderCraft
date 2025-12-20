@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AnderCraft Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(#3db7ff, #1f5fd6);
+      color: #ffffff;
+      font-family: "Momo Trust Display", sans-serif;
+      font-weight: 400;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin-top: 40px;
+      border-bottom: 2px solid rgba(255,255,255,0.2);
+      padding-bottom: 6px;
+    }
+
+    p, li {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #00c853;
+      color: #000;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-left: 6px;
+    }
+
+    .email {
+      color: #ffe066;
+      font-weight: bold;
+      word-break: break-all;
+    }
+
+    .logs-box {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 10px;
+      padding: 15px;
+      max-height: 320px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .log-version {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffe066;
+      margin-top: 12px;
+    }
+
+    .log-item {
+      margin-left: 14px;
+      opacity: 0.95;
+    }
+
+    .loading {
+      opacity: 0.7;
+      font-style: italic;
+    }
+
+    .form-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 18px;
+      background: #ff9800;
+      color: #000;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .form-link:hover {
+      opacity: 0.9;
+    }
+
+    .footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>AnderCraft Support <span class="badge">BETA</span></h1>
+
+    <div class="card">
+      <p>
+        Welcome to the official AnderCraft Support page.  
+        Here you can view update logs, report issues, and submit feedback.
+      </p>
+    </div>
+
+    <h2>About AnderCraft</h2>
+    <div class="card">
+      <p>
+        AnderCraft is a 2D sandbox game inspired by Minecraft, developed entirely using
+        <strong>TurboWarp</strong>. The game is currently in beta, so updates, changes,
+        and fixes may happen frequently.
+      </p>
+    </div>
+
+    <h2>Logs & Updates</h2>
+    <div class="card">
+      <div id="logs" class="logs-box loading">
+        Loading logs...
+      </div>
+      <p style="font-size:13px; opacity:0.8; margin-top:8px;">
+        Logs update automatically every 60 seconds.
+      </p>
+    </div>
+
+    <h2>Report a Problem or Suggest a Feature</h2>
+    <div class="card">
+      <p>
+        Use the form below to report:
+      </p>
+      <ul>
+        <li>Bugs or crashes</li>
+        <li>Inappropriate or unsafe content</li>
+        <li>Exploits or abuse</li>
+        <li>Feature requests or suggestions</li>
+        <li>Anything else that should be addressed</li>
+      </ul>
+
+      <a class="form-link" href="https://forms.gle/djBsTgxfef8xtub49" target="_blank">
+        Open Report & Feedback Form
+      </a>
+    </div>
+
+    <h2>Contact Support</h2>
+    <div class="card">
+      <p>
+        For direct contact, email:
+      </p>
+      <p class="email">dudemakcolas@gmail.com</p>
+    </div>
+
+    <div class="footer">
+      © AnderCraft — All rights reserved
+    </div>
+  </div>
+
+  <script>
+    const LOG_URL = "https://raw.githubusercontent.com/MakTools/AnderCraft/refs/heads/main/logs.txt";
+    const logsBox = document.getElementById("logs");
+
+    function formatLogs(text) {
+      logsBox.innerHTML = "";
+      const lines = text.split("\n");
+
+      lines.forEach(line => {
+        const div = document.createElement("div");
+
+        if (/^v|^version/i.test(line.trim())) {
+          div.className = "log-version";
+          div.textContent = line;
+        } else if (/^-|•/.test(line.trim())) {
+          div.className = "log-item";
+          div.textContent = line.replace(/^[-•]\s*/, "• ");
+        } else {
+          div.textContent = line;
+        }
+
+        logsBox.appendChild(div);
+      });
+    }
+
+    function loadLogs() {
+      fetch(LOG_URL)
+        .then(r => r.text())
+        .then(text => {
+          logsBox.classList.remove("loading");
+          formatLogs(text);
+        })
+        .catch(() => {
+          logsBox.textContent = "Failed to load logs. Please try again later.";
+        });
+    }
+
+    loadLogs();
+    setInterval(loadLogs, 60000);
+  </script>
+
+</body>
+  </html>
