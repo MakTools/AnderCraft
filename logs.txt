@@ -1,1 +1,5 @@
-V2: Added logs and news, added a support tab, and redesigned the main menu. We also remade the world functionality, able to export worlds, import worlds, and more. We also added the ability to play old worlds on new versions of AC (1.5 and later).
+AnderCraft – Version 2 Update Notes
+Version 2 delivers significant improvements focused on usability, stability, and long-term compatibility.
+A new News and Update Logs section has been added, allowing players to view announcements and recent changes directly within the game. A Support tab is now available, providing easier access to help and issue reporting.
+The main menu has been redesigned with a cleaner layout and improved navigation for a more streamlined user experience.
+The world system has been fully reworked, introducing support for exporting and importing worlds, along with improved data handling. In addition, AnderCraft now supports backward compatibility, allowing worlds created in earlier versions (1.5 and later) to be played on newer releases.
