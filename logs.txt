@@ -1,8 +1,8 @@
-AnderCraft – Version 2 Update Notes
+AnderCraft – Version 2.5.1: Pharack Edition
+Version 2.5.1, titled Pharack Edition, is a major content update that expands gameplay while introducing a refreshed presentation.
+This update adds eight new blocks, including signs, doors, obsidian, lava, fire, and an igniter used to start flames, along with additional new elements that enhance building and interaction. The menu theme has been updated, featuring a new visual style and background music to give AnderCraft a refreshed identity.
 
-Version 2 delivers significant improvements focused on usability, stability, and long-term compatibility.
-A new News and Update Logs section has been added, allowing players to view announcements and recent changes directly within the game. A Support tab is now available, providing easier access to help and issue reporting.
+World Compatibility Limitations: Worlds created in newer versions cannot be imported into older releases. Attempting to load a world from a version newer than 2.5.1 (such as 2.5.2) will result in an error. Compatibility: Older worlds remain supported. Worlds from versions as early as 1.5 can be imported into 2.5.1, though minor corruption may occur due to format differences.
 
-The main menu has been redesigned with a cleaner layout and improved navigation for a more streamlined user experience.
-
-The world system has been fully reworked, introducing support for exporting and importing worlds, along with improved data handling. In addition, AnderCraft now supports backward compatibility, allowing worlds created in earlier versions (1.5 and later) to be played on newer releases.
+Patch Note 1 – World Access Requirement
+Players are now required to create a world before accessing gameplay. In versions 2.0 and earlier, a critical bug allowed users to enter worlds without having created one, which led to major security vulnerabilities. This issue has been fully resolved in the current version to improve stability and protect world data.
